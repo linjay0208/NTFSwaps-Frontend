@@ -1,0 +1,338 @@
+.App {
+  text-align: center;
+  font-family: Poppins;
+}
+
+.Header {
+  background: #1A1A1A;
+  height: 66px;
+  text-align: right;
+  box-shadow: 0px 2px 17px #000000A3;
+  position: relative;
+  z-index: 2;
+}
+
+.Footer{
+  background: #262626;
+  color: #F5F5F5;
+  font-size: 17px;
+  padding: 0 6%;
+}
+
+.footerLinks {
+  text-align: left;
+  font-weight: 300;
+  margin: 0 5px;
+  font-size: 13px;
+  font-weight: 16px;
+  line-height: 28px;
+}
+
+.footerTitles {
+  text-align: left;
+  color: #FF7F00;
+  font-weight: 600;
+  margin: 0px 0px 5px 0px;
+  font-size: 20px;
+}
+
+p {
+  font-size: 17px;
+  font-weight: 300;
+}
+
+h3 {
+  color: #FF7F00;
+}
+
+a {
+  text-decoration: none;
+}
+
+.Home, .Assets, .Pool {
+  padding: 0 5%;
+  background: #1A1A1A;
+}
+
+.Home div, .Assets div, .Pool div {
+  /*max-width: 1080px;
+  margin: auto;*/
+}
+
+.MainBox {
+  font-family: Montserrat;
+  position: relative;
+  text-align: left;
+}
+
+.MainBox h1 {
+  font-size: 80px;
+}
+
+.MainBox h1:nth-child(2) {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.MainBox h1:nth-child(1) {
+  color: black;
+  margin-bottom: 0;
+  transform: translate(5px, 5px);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #FF7F00;
+}
+
+.OrangeBox {
+  font-family: Montserrat;
+  position: relative;
+  text-align: left;
+}
+
+.OrangeBox h1 {
+  font-size: 4em;
+  text-align: center;
+}
+
+.OrangeBox h1:nth-child(2) {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.OrangeBox h1:nth-child(1) {
+  color: black;
+  margin-bottom: 0;
+  transform: translate(5px, 5px);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #FF7F00;
+}
+
+.footerIcon {
+  border: 2px solid rgb(255, 127, 0);
+  border-radius: 50%;
+  padding: 5px;
+  background-image: url("https://nft.nirakara.co.uk/medium-m.svg");
+  width: 27px;
+  height: 26px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 40px;
+  height: 34px;
+  right: 5%;
+  top: 14px;
+  background-image: url("https://nft.nirakara.co.uk/menu.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+  opacity: 0!important;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: absolute;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.AssetCard {
+  background-color: #FEF6EF;
+  border-radius: 10px;
+  color: black;
+  width: 80%;
+  height: 450px;
+  margin: auto;
+  max-width: 300px;
+}
+
+.TokenCard {
+  background-color: #FEF6EF;
+  border-radius: 10px;
+  color: black;
+  width: 80%;
+  height: 35vw;
+  margin: auto;
+}
+
+.FAQBox {
+  background-color: #FF7F00;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  padding-right: 45px;
+  font-size: 22px;
+  text-align: left;
+  margin: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.FAQBox span {
+  text-align: right;
+  float: right;
+  font-size: 54px;
+  position: absolute;
+  right: 12px;
+  top: -12px;
+}
+
+.AnswerBox {
+  background-color: #262626;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 18px;
+  text-align: left;
+  margin: 20px;
+  position: relative;
+}
+
+.IconX {
+  border: 4px solid #FF7F00;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  margin-right: 0px;
+  background: black;
+  font-family: Montserrat;
+  font-size: 8px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  transform: rotate(10deg);
+  color: #FF7F00;
+}
+
+.slick-arrow-custom-right {
+  color: #FF7F00;
+  border: 2px solid #FF7F00;
+  border-radius: 10px;
+  display: block;
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  padding: 0px 10px;
+  font-size: 24px;
+}
+
+.slick-arrow-custom-left {
+  color: #FF7F00;
+  border: 2px solid #FF7F00;
+  border-radius: 10px;
+  display: block;
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  padding: 0px 10px;
+  font-size: 24px;
+}
+
+
+table {
+  width: 60%;
+  margin-left: 0px;
+  color: white;
+}
+
+table tr td:nth-child(1){
+  text-align: left;
+}
+
+table tr td:nth-child(2){
+  text-align: right;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  background: #1D1D1D;
+  z-index: 1;
+  top: 0;
+  height: 40px;
+  text-align: right;
+}
+
+.toggle {
+  transition: all .5s ease-in-out;
+  transform: translate(0px, 70px);
+}
+
+.inverse {
+  transform: scaleX(-1);
+}
+
+.inverseM {
+  transform: rotate(90deg);
+}
+
+.inverseMFlip {
+  transform: rotate(-90deg);
+}
