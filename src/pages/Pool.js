@@ -1014,7 +1014,7 @@ function Pool(props) {
                     width: "50px",
                     height: "50px",
                     marginRight: "0px",
-                    backgroundImage: `url("/new-images/${assetData.symbol}.svg")`,
+                    backgroundImage: `url("/new-images/${assetData.name}.svg")`,
                     backgroundSize: "cover",
                   }}
                 />
@@ -1114,7 +1114,7 @@ function Pool(props) {
                         fontWeight: "700",
                       }}
                     >
-                      <div> {assetData.pool.length}</div>
+                      <div> {assetData.pool}</div>
                     </Grid>
                   </Grid>
                   <Grid
@@ -1251,7 +1251,7 @@ function Pool(props) {
                                       width: "40px",
                                       height: "40px",
                                       marginRight: "0px",
-                                      backgroundImage: `url("/new-images/${assetData.symbol}.svg")`,
+                                      backgroundImage: `url("/new-images/${assetData.name}.svg")`,
                                       backgroundSize: "cover",
                                     }}
                                   />
@@ -1332,8 +1332,7 @@ function Pool(props) {
                                       width: "40px",
                                       height: "40px",
                                       marginRight: "0px",
-                                      backgroundImage:
-                                        'url("/new-images/currency-icon.svg")',
+                                      backgroundImage: `url("/new-images/${assetData.name}.svg")`,
                                       backgroundSize: "cover",
                                     }}
                                   />
@@ -1359,9 +1358,17 @@ function Pool(props) {
                             <tbody>
                               <tr>
                                 <td>
-                                  <div className="IconX">
-                                    {assetData.symbol}
-                                  </div>
+                                  <div
+                                    style={{
+                                      border: "1px solid black",
+                                      borderRadius: "50px",
+                                      width: "40px",
+                                      height: "40px",
+                                      marginRight: "0px",
+                                      backgroundImage: `url("/new-images/${assetData.name}.svg")`,
+                                      backgroundSize: "cover",
+                                    }}
+                                  />
                                 </td>
                                 <td
                                   style={{
@@ -1400,7 +1407,7 @@ function Pool(props) {
                     width: "50px",
                     height: "50px",
                     marginRight: "0px",
-                    backgroundImage: `url("/new-images/${assetData.symbol}.svg")`,
+                    backgroundImage: `url("/new-images/${assetData.name}.svg")`,
                     backgroundSize: "cover",
                   }}
                 />
@@ -1484,7 +1491,7 @@ function Pool(props) {
                     width: "60px",
                     height: "60px",
                     margin: "auto",
-                    backgroundImage: `url("/new-images/${assetData.symbol}.svg")`,
+                    backgroundImage: `url("/new-images/${assetData.name}.svg")`,
                     backgroundSize: "cover",
                   }}
                 />
@@ -1725,7 +1732,7 @@ function Pool(props) {
                                       width: "40px",
                                       height: "40px",
                                       marginRight: "0px",
-                                      backgroundImage: `url("/new-images/${assetData.symbol}.svg")`,
+                                      backgroundImage: `url("/new-images/${assetData.name}.svg")`,
                                       backgroundSize: "cover",
                                     }}
                                   />
@@ -1833,9 +1840,17 @@ function Pool(props) {
                             <tbody>
                               <tr>
                                 <td>
-                                  <div className="IconX">
-                                    {assetData.symbol}
-                                  </div>
+                                  <div
+                                    style={{
+                                      border: "1px solid black",
+                                      borderRadius: "50px",
+                                      width: "40px",
+                                      height: "40px",
+                                      marginRight: "0px",
+                                      backgroundImage: `url("/new-images/${assetData.name}.svg")`,
+                                      backgroundSize: "cover",
+                                    }}
+                                  />
                                 </td>
                                 <td
                                   style={{
@@ -1888,7 +1903,7 @@ function Pool(props) {
                     width: "50px",
                     height: "50px",
                     marginRight: "0px",
-                    backgroundImage: `url("/new-images/${assetData.symbol}.svg")`,
+                    backgroundImage: `url("/new-images/${assetData.name}.svg")`,
                     backgroundSize: "cover",
                   }}
                 />

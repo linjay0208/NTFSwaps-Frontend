@@ -663,6 +663,81 @@ function App() {
     return data;
   };
 
+  let hardAssets = [
+    {
+      pool: 9,
+      _id: "609cf0d842a9c32c44e84190",
+      name: "SWAPS SOCKS",
+      symbol: "SOCKSX",
+      uri: "http://api.nftswaps.io/socks/",
+      address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
+      pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
+      liquidity: "$1,000,000",
+      price: "10",
+      supply: "2600",
+    },
+    {
+      pool: 100,
+      _id: "609cf0d842a9c32c44e84190",
+      name: "Battle Pets",
+      symbol: "PETSX",
+      uri: "http://api.nftswaps.io/socks/",
+      address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
+      pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
+      liquidity: "$250,324",
+      price: "1",
+      supply: "1000",
+    },
+    {
+      pool: 1000,
+      _id: "609cf0d842a9c32c44e84190",
+      name: "Lil Moon Rockets",
+      symbol: "ROCKX",
+      uri: "http://api.nftswaps.io/socks/",
+      address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
+      pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
+      liquidity: "$550,666",
+      price: "3",
+      supply: "13, 337",
+    },
+    {
+      pool: 9,
+      _id: "609cf0d842a9c32c44e84190",
+      name: "SWAPS SOCKS",
+      symbol: "SOCKSX",
+      uri: "http://api.nftswaps.io/socks/",
+      address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
+      pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
+      liquidity: "$1,000,000",
+      price: "10",
+      supply: "2600",
+    },
+    {
+      pool: 100,
+      _id: "609cf0d842a9c32c44e84190",
+      name: "Battle Pets",
+      symbol: "PETSX",
+      uri: "http://api.nftswaps.io/socks/",
+      address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
+      pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
+      liquidity: "$250,324",
+      price: "1",
+      supply: "1000",
+    },
+    {
+      pool: 1000,
+      _id: "609cf0d842a9c32c44e84190",
+      name: "Lil Moon Rockets",
+      symbol: "ROCKX",
+      uri: "http://api.nftswaps.io/socks/",
+      address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
+      pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
+      liquidity: "$550,666",
+      price: "3",
+      supply: "13, 337",
+    },
+  ];
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
@@ -696,7 +771,7 @@ function App() {
             path="/mining-staking"
             render={(props) => (
               <Mining
-                assetList={assets}
+                assetList={hardAssets}
                 {...props}
                 web3={web3}
                 abi={abi}
@@ -712,7 +787,7 @@ function App() {
             path="/assets"
             render={(props) => (
               <Assets
-                assetList={assets}
+                assetList={hardAssets}
                 {...props}
                 web3={web3}
                 abi={abi}
@@ -728,7 +803,7 @@ function App() {
             path="/pool/:sym"
             render={(props) => (
               <Pool
-                assetList={assets}
+                assetList={hardAssets}
                 {...props}
                 web3={web3}
                 abi={abi}

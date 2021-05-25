@@ -17,7 +17,7 @@ function AssetCard(props) {
             style={{
               width: "67px",
               height: "67px",
-              backgroundImage: `url("./new-images/${props.data.symbol}.svg")`,
+              backgroundImage: `url("./new-images/${props.data.name}.svg")`,
               backgroundSize: "cover",
             }}
           ></div>
@@ -94,7 +94,8 @@ function AssetCard(props) {
             xs={6}
             style={{ textAlign: "right", fontSize: "15px", fontWeight: "700" }}
           >
-            {props.data.pool.length}
+            {props.data.pool}
+            {/* {props.data.pool.length} */}
           </Grid>
           <Grid
             item
