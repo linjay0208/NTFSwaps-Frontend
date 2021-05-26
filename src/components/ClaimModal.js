@@ -698,6 +698,7 @@ export default function ClaimModal(props) {
               class="close"
               data-dismiss="modal"
               aria-label="Close"
+              onClick={props.handleClose}
             >
               <span aria-hidden="true">
                 <img src="/new-images/modal-close-icon.svg" alt="Close" />
