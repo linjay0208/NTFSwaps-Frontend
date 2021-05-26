@@ -2,6 +2,8 @@ import "./App.css";
 import Grid from "@material-ui/core/Grid";
 import { Twitter, Telegram, GitHub, YouTube } from "@material-ui/icons";
 import SvgIcon from "@material-ui/core/SvgIcon";
+// import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function Footer() {
@@ -119,24 +121,31 @@ function Footer() {
         </Grid>
         <Grid item xs={6} md={3}>
           <h3 className="footerTitles">Quick Links</h3>
-          <p
-            style={{ cursor: "pointer", fontSize: matches ? "1rem" : "12px" }}
-            className="footerLinks"
-          >
-            HOME
-          </p>
-          <p
-            style={{ cursor: "pointer", fontSize: matches ? "1rem" : "12px" }}
-            className="footerLinks"
-          >
-            FEATURES
-          </p>
-          <p
-            style={{ cursor: "pointer", fontSize: matches ? "1rem" : "12px" }}
-            className="footerLinks"
-          >
-            HOW IT WORKS
-          </p>
+
+          <Link to="/#home">
+            <p
+              style={{ cursor: "pointer", fontSize: matches ? "1rem" : "12px" }}
+              className="footerLinks"
+            >
+              HOME
+            </p>
+          </Link>
+          <Link to="/#features">
+            <p
+              style={{ cursor: "pointer", fontSize: matches ? "1rem" : "12px" }}
+              className="footerLinks"
+            >
+              FEATURES
+            </p>
+          </Link>
+          <Link to="/#how-it-works">
+            <p
+              style={{ cursor: "pointer", fontSize: matches ? "1rem" : "12px" }}
+              className="footerLinks"
+            >
+              HOW IT WORKS
+            </p>
+          </Link>
           <p
             style={{ cursor: "pointer", fontSize: matches ? "1rem" : "12px" }}
             className="footerLinks"

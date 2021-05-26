@@ -111,6 +111,7 @@ function Home() {
   return (
     <div
       className="Home"
+      id="home"
       style={{
         backgroundImage: 'url("./Main_Bg.png")',
         backgroundPosition: "center center",
@@ -226,9 +227,9 @@ function Home() {
           </h3>
         </Grid>
 
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={12} id="features" style={{ paddingTop: "4rem" }}>
           <div className="OrangeBox">
-            <h1>Features</h1>
+            <h1 name="features">Features</h1>
           </div>
         </Grid>
         <div style={{ padding: "0 16px" }}>
@@ -382,7 +383,13 @@ function Home() {
             </Grid>
           </Grid>
         </div>
-        <Grid item xs={12} md={12}>
+        <Grid
+          item
+          xs={12}
+          md={12}
+          id="how-it-works"
+          style={{ paddingTop: "4rem" }}
+        >
           <div className="OrangeBox">
             <h1>How It Works</h1>
           </div>
