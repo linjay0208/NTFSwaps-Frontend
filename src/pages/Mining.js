@@ -111,7 +111,9 @@ function Mining(props) {
           style={{ maxWidth: "1280px", margin: "auto", marginTop: "4rem" }}
           {...settings}
           centerPadding={"200px"}
-          slidesToShow={searchCriteria(props.assetList).length > 2 ? 3 : 1}
+          slidesToShow={
+            searchCriteria(props.assetList).length > 2 && matches ? 2 : 1
+          }
         >
           {props.assetList &&
             searchCriteria(props.assetList).map((e) => {

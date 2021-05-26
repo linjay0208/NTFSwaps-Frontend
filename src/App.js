@@ -7,6 +7,7 @@ import Assets from "./pages/Assets.js";
 import Pool from "./pages/Pool.js";
 import Footer from "./Footer.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
   MuiThemeProvider,
   createMuiTheme,
@@ -738,6 +739,7 @@ function App() {
     },
   ];
 
+  const matches = useMediaQuery("(min-width:768px)");
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
@@ -814,7 +816,6 @@ function App() {
               />
             )}
           />
-          {/* <div style={{ height: "20rem" }}></div> */}
           <Footer />
         </Router>
       </ThemeProvider>

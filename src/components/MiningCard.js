@@ -16,8 +16,8 @@ function MiningCard(props) {
       container
       xs={11}
       sm={9}
-      md={6}
-      lg={5}
+      md={11}
+      lg={10}
       className="MiningCard"
       style={{ display: "block" }}
     >

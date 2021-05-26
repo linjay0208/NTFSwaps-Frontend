@@ -573,6 +573,12 @@ function Home() {
       <br />
       <br />
       <br />
+
+      <div
+        style={{
+          height: matches ? "20rem " : "37rem ",
+        }}
+      ></div>
     </div>
   );
 }
