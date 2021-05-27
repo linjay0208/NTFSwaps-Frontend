@@ -132,7 +132,7 @@ function Assets(props) {
     );
   else {
     return (
-      <div className="Assets">
+      <div className="Assets" style={{ paddingBottom: "37rem" }}>
         <CreateModal
           open={open}
           handleClose={handleClose}

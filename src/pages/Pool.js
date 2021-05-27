@@ -1468,7 +1468,14 @@ function Pool(props) {
     );
   else if (assetData && !matches) {
     return (
-      <div className="Pool" style={{ marginTop: "4rem", paddingTop: "1rem" }}>
+      <div
+        className="Pool"
+        style={{
+          marginTop: "4rem",
+          paddingTop: "1rem",
+          paddingBottom: "37rem",
+        }}
+      >
         <br />
         <br />
         <br />
@@ -1477,6 +1484,18 @@ function Pool(props) {
           open={open}
           openSnack={props.openSnack}
           handleClose={handleClose}
+          web3={props.web3}
+          abi={props.abi}
+          contractAddress={props.contractAddress}
+          getAssetList={props.getAssetList}
+          coinbase={props.coinbase}
+          address={assetData.address}
+        />
+        <SwapModal
+          getBalance={getBalance}
+          open={openSwaps}
+          openSnack={props.openSnack}
+          handleClose={handleCloseSwaps}
           web3={props.web3}
           abi={props.abi}
           contractAddress={props.contractAddress}
@@ -1740,6 +1759,7 @@ function Pool(props) {
                       cursor: "pointer",
                       width: "50px",
                     }}
+                    className="inverseM"
                     onClick={() => setDirection(!direction)}
                   />
                 </Grid>

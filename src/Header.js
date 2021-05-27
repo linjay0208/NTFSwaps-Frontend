@@ -112,7 +112,7 @@ function Header(props) {
                   onClick={props.getCoinbase}
                   style={{ padding: "4px 1.5rem" }}
                 >
-                  Launch App
+                  Connect Wallet
                 </FilledButton>
               )}
               <button
@@ -233,7 +233,7 @@ function Header(props) {
                             onClick={props.getCoinbase}
                             style={{ padding: "4px 1rem", fontSize: "14px" }}
                           >
-                            Launch App
+                            Connect
                           </FilledButton>
                         )}
                       </Grid>
