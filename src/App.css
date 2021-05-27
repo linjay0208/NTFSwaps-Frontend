@@ -558,10 +558,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   border-radius: 10px;
   color: black;
   width: 80%;
-  /* height: 450px; */
+  /* height: 400px; */
   margin: auto;
   max-width: 300px;
-  padding: 40px 0px 20px;
+  padding: 40px 10px 20px;
 }
 
 .TokenCard {

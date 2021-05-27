@@ -964,6 +964,107 @@ function Pool(props) {
     props.openSnack("success", "Tokens Created");
   };
 
+  function SymbolComponent() {
+    return (
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <div className="IconX">{assetData.symbol}</div>
+              </td>
+              <td
+                style={{
+                  textAlign: "left",
+                  color: "#666666",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  marginBottom: "0px",
+                }}
+              >
+                {assetData.symbol}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
+  function TokenNameComponent() {
+    return (
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <div
+                  style={{
+                    border: "1px solid black",
+                    borderRadius: "50px",
+                    width: "40px",
+                    height: "40px",
+                    marginRight: "0px",
+                    backgroundImage: `url("/new-images/${assetData.name}.svg")`,
+                    backgroundSize: "cover",
+                  }}
+                />
+              </td>
+              <td
+                style={{
+                  textAlign: "left",
+                  color: "#666666",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  marginBottom: "0px",
+                }}
+              >
+                {assetData.name}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
+  function BnbComponent() {
+    return (
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <div
+                  style={{
+                    border: "0px solid black",
+                    borderRadius: "50px",
+                    width: "40px",
+                    height: "40px",
+                    marginRight: "0px",
+                    backgroundImage: 'url("/new-images/currency-icon.svg")',
+                    backgroundSize: "cover",
+                  }}
+                />
+              </td>
+              <td
+                style={{
+                  textAlign: "left",
+                  color: "#666666",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  marginBottom: "0px",
+                }}
+              >
+                BNB
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
   if (assetData && matches)
     return (
       <div className="Pool" style={{ marginTop: "4rem", paddingTop: "3rem" }}>
@@ -1177,7 +1278,12 @@ function Pool(props) {
                 <span>Swap "SWAP SOCKS" for $SOCKSX</span>
                 <div className="toggle-swtich">
                   <label className="switch">
-                    <input type="checkbox" id="deskToggle" />
+                    <input
+                      type="checkbox"
+                      id="deskToggle"
+                      value={toggle}
+                      onChange={handleToggle}
+                    />
                     <span className="slider" style={{ height: "30px" }}></span>
                   </label>
                 </div>
@@ -1195,7 +1301,7 @@ function Pool(props) {
                         marginBottom: "0px",
                       }}
                     >
-                      {direction ? "To" : "From"}
+                      From
                     </h3>
                     <div
                       style={{
@@ -1210,67 +1316,26 @@ function Pool(props) {
                           classes: { input: classes.input },
                         }}
                         className={classes.input}
-                        value={tokenAmount}
+                        value={direction ? wethAmount : tokenAmount}
                         onChange={handleTokenChange}
                       />
 
                       {toggle ? (
-                        <div>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div className="IconX">
-                                    {assetData.symbol}
-                                  </div>
-                                </td>
-                                <td
-                                  style={{
-                                    color: "grey",
-                                    fontWeight: "bold",
-                                    maxWidth: "100%",
-                                    whiteSpace: "nowrap",
-                                  }}
-                                >
-                                  {assetData.symbol}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                        <React.Fragment>
+                          {direction ? (
+                            <BnbComponent></BnbComponent>
+                          ) : (
+                            <SymbolComponent></SymbolComponent>
+                          )}
+                        </React.Fragment>
                       ) : (
-                        <div>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div
-                                    style={{
-                                      border: "1px solid black",
-                                      borderRadius: "50px",
-                                      width: "40px",
-                                      height: "40px",
-                                      marginRight: "0px",
-                                      backgroundImage: `url("/new-images/${assetData.name}.svg")`,
-                                      backgroundSize: "cover",
-                                    }}
-                                  />
-                                </td>
-                                <td
-                                  style={{
-                                    textAlign: "left",
-                                    color: "#666666",
-                                    fontSize: "16px",
-                                    fontWeight: "400",
-                                    marginBottom: "0px",
-                                  }}
-                                >
-                                  {assetData.name}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                        <React.Fragment>
+                          {direction ? (
+                            <SymbolComponent></SymbolComponent>
+                          ) : (
+                            <TokenNameComponent></TokenNameComponent>
+                          )}
+                        </React.Fragment>
                       )}
                     </div>
                   </Paper>
@@ -1284,7 +1349,6 @@ function Pool(props) {
                       cursor: "pointer",
                       width: "35px",
                     }}
-                    className={direction ? "inverse" : ""}
                     onClick={() => setDirection(!direction)}
                   />
                 </Grid>
@@ -1300,7 +1364,7 @@ function Pool(props) {
                         marginBottom: "0px",
                       }}
                     >
-                      {direction ? "From" : "To"}
+                      To
                     </h3>
 
                     <div
@@ -1316,75 +1380,25 @@ function Pool(props) {
                           classes: { input: classes.input },
                         }}
                         className={classes.input}
-                        value={wethAmount}
+                        value={direction ? tokenAmount : wethAmount}
                         onChange={handleWethChange}
                       />
                       {toggle ? (
-                        <div>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div
-                                    style={{
-                                      border: "0px solid black",
-                                      borderRadius: "50px",
-                                      width: "40px",
-                                      height: "40px",
-                                      marginRight: "0px",
-                                      backgroundImage: `url("/new-images/${assetData.name}.svg")`,
-                                      backgroundSize: "cover",
-                                    }}
-                                  />
-                                </td>
-                                <td
-                                  style={{
-                                    textAlign: "left",
-                                    color: "#666666",
-                                    fontSize: "16px",
-                                    fontWeight: "400",
-                                    marginBottom: "0px",
-                                  }}
-                                >
-                                  BNB
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                        <React.Fragment>
+                          {direction ? (
+                            <SymbolComponent></SymbolComponent>
+                          ) : (
+                            <BnbComponent></BnbComponent>
+                          )}
+                        </React.Fragment>
                       ) : (
-                        <div>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div
-                                    style={{
-                                      border: "1px solid black",
-                                      borderRadius: "50px",
-                                      width: "40px",
-                                      height: "40px",
-                                      marginRight: "0px",
-                                      backgroundImage: `url("/new-images/${assetData.name}.svg")`,
-                                      backgroundSize: "cover",
-                                    }}
-                                  />
-                                </td>
-                                <td
-                                  style={{
-                                    textAlign: "left",
-                                    color: "#666666",
-                                    fontSize: "16px",
-                                    fontWeight: "400",
-                                    marginBottom: "0px",
-                                  }}
-                                >
-                                  {assetData.symbol}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                        <React.Fragment>
+                          {direction ? (
+                            <TokenNameComponent></TokenNameComponent>
+                          ) : (
+                            <SymbolComponent></SymbolComponent>
+                          )}
+                        </React.Fragment>
                       )}
                     </div>
                   </Paper>
@@ -1393,7 +1407,9 @@ function Pool(props) {
 
               <br />
               <br />
-              <GlowingButton onClick={trySwap}>Swap</GlowingButton>
+              <GlowingButton onClick={toggle ? null : trySwap}>
+                Swap
+              </GlowingButton>
             </Paper>
           </Grid>
 
@@ -1675,7 +1691,7 @@ function Pool(props) {
                         marginBottom: "0px",
                       }}
                     >
-                      {direction ? "To" : "From"}
+                      From
                     </h3>
 
                     <div
@@ -1695,63 +1711,21 @@ function Pool(props) {
                       />
 
                       {toggle ? (
-                        <div>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div className="IconX">
-                                    {assetData.symbol}
-                                  </div>
-                                </td>
-                                <td
-                                  style={{
-                                    textAlign: "left",
-                                    color: "#666666",
-                                    fontSize: "16px",
-                                    fontWeight: "400",
-                                    marginBottom: "0px",
-                                  }}
-                                >
-                                  {assetData.symbol}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                        <React.Fragment>
+                          {direction ? (
+                            <BnbComponent></BnbComponent>
+                          ) : (
+                            <SymbolComponent></SymbolComponent>
+                          )}
+                        </React.Fragment>
                       ) : (
-                        <div>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div
-                                    style={{
-                                      border: "1px solid black",
-                                      borderRadius: "50px",
-                                      width: "40px",
-                                      height: "40px",
-                                      marginRight: "0px",
-                                      backgroundImage: `url("/new-images/${assetData.name}.svg")`,
-                                      backgroundSize: "cover",
-                                    }}
-                                  />
-                                </td>
-                                <td
-                                  style={{
-                                    textAlign: "left",
-                                    color: "#666666",
-                                    fontSize: "16px",
-                                    fontWeight: "400",
-                                    marginBottom: "0px",
-                                  }}
-                                >
-                                  {assetData.name}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                        <React.Fragment>
+                          {direction ? (
+                            <SymbolComponent></SymbolComponent>
+                          ) : (
+                            <TokenNameComponent></TokenNameComponent>
+                          )}
+                        </React.Fragment>
                       )}
                     </div>
                   </Paper>
@@ -1760,12 +1734,12 @@ function Pool(props) {
                 <Grid item xs={12} md={2}>
                   <img
                     src="/new-images/convert-arrow-icon.svg"
+                    alt="arrow"
                     style={{
                       marginTop: "20px",
                       cursor: "pointer",
                       width: "50px",
                     }}
-                    className={"inverseM " + (direction && "inverseMFlip")}
                     onClick={() => setDirection(!direction)}
                   />
                 </Grid>
@@ -1784,7 +1758,7 @@ function Pool(props) {
                       {direction ? "From" : "To"}
                     </h3>
 
-                    <di
+                    <div
                       style={{
                         display: "flex",
                         justifyContent: "space-between",
@@ -1801,74 +1775,23 @@ function Pool(props) {
                       />
 
                       {toggle ? (
-                        <div>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div
-                                    style={{
-                                      border: "0px solid black",
-                                      borderRadius: "50px",
-                                      width: "40px",
-                                      height: "40px",
-                                      marginRight: "0px",
-                                      backgroundImage:
-                                        'url("/new-images/currency-icon.svg")',
-                                      backgroundSize: "cover",
-                                    }}
-                                  />
-                                </td>
-                                <td
-                                  style={{
-                                    textAlign: "left",
-                                    color: "#666666",
-                                    fontSize: "16px",
-                                    fontWeight: "400",
-                                    marginBottom: "0px",
-                                  }}
-                                >
-                                  BNB
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                        <React.Fragment>
+                          {direction ? (
+                            <SymbolComponent></SymbolComponent>
+                          ) : (
+                            <BnbComponent></BnbComponent>
+                          )}
+                        </React.Fragment>
                       ) : (
-                        <div>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div
-                                    style={{
-                                      border: "1px solid black",
-                                      borderRadius: "50px",
-                                      width: "40px",
-                                      height: "40px",
-                                      marginRight: "0px",
-                                      backgroundImage: `url("/new-images/${assetData.name}.svg")`,
-                                      backgroundSize: "cover",
-                                    }}
-                                  />
-                                </td>
-                                <td
-                                  style={{
-                                    textAlign: "left",
-                                    color: "#666666",
-                                    fontSize: "16px",
-                                    fontWeight: "400",
-                                    marginBottom: "0px",
-                                  }}
-                                >
-                                  {assetData.symbol}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                        <React.Fragment>
+                          {direction ? (
+                            <TokenNameComponent></TokenNameComponent>
+                          ) : (
+                            <SymbolComponent></SymbolComponent>
+                          )}
+                        </React.Fragment>
                       )}
-                    </di>
+                    </div>
                   </Paper>
                 </Grid>
               </Grid>
@@ -1881,13 +1804,21 @@ function Pool(props) {
                 </span>
                 <div className="toggle-swtich">
                   <label className="switch">
-                    <input type="checkbox" id="deskToggle" />
+                    <input
+                      type="checkbox"
+                      id="deskToggle"
+                      value={toggle}
+                      onChange={handleToggle}
+                    />
                     <span className="slider" style={{ height: "30px" }}></span>
                   </label>
                 </div>
               </div>
               <br />
-              <GlowingButton onClick={trySwap} style={{ marginTop: "1rem" }}>
+              <GlowingButton
+                onClick={toggle ? null : trySwap}
+                style={{ marginTop: "1rem" }}
+              >
                 Swap
               </GlowingButton>
             </Paper>

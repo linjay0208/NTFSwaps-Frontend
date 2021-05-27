@@ -34,7 +34,7 @@ function AssetCard(props) {
           </div>
         </Grid>
       </Grid>
-      <p style={{ fontSize: "20px", fontWeight: "700" }}>
+      <p style={{ fontSize: "20px", fontWeight: "700", height: "35px" }}>
         {props.data.name} - {props.data.symbol}
       </p>
       <p style={{ fontSize: "14px", fontWeight: "500" }}>
@@ -56,42 +56,42 @@ function AssetCard(props) {
         <Grid container justify="space-between" alignItems="center" spacing={1}>
           <Grid
             item
-            xs={6}
+            xs={7}
             style={{ textAlign: "left", fontSize: "13px", fontWeight: "500" }}
           >
             Liquidity
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={5}
             style={{ textAlign: "right", fontSize: "15px", fontWeight: "700" }}
           >
-            ${props.data.liquidity}
+            {props.data.liquidity}
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={7}
             style={{ textAlign: "left", fontSize: "13px", fontWeight: "500" }}
           >
             ${props.data.symbol} Supply
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={5}
             style={{ textAlign: "right", fontSize: "15px", fontWeight: "700" }}
           >
             {props.data.supply}
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={7}
             style={{ textAlign: "left", fontSize: "13px", fontWeight: "500" }}
           >
             NFTs In Pool
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={5}
             style={{ textAlign: "right", fontSize: "15px", fontWeight: "700" }}
           >
             {props.data.pool}
@@ -99,14 +99,14 @@ function AssetCard(props) {
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={7}
             style={{ textAlign: "left", fontSize: "13px", fontWeight: "500" }}
           >
             Price
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={5}
             style={{ textAlign: "right", fontSize: "15px", fontWeight: "700" }}
           >
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
