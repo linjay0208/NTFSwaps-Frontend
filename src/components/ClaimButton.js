@@ -1,21 +1,27 @@
-import '../App.css';
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import "../App.css";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
   root: {
-    background: '#FFFFFF',
+    background: "#FFFFFF",
     border: 0,
-    borderRadius: "34px",
-    color: 'black',
+    borderRadius: "10px",
+    color: "black",
     fontFamily: "Montserrat",
-    fontSize: "18px",
-    minWidth: "200px",
-    fontWeight: "bold"
+    fontSize: "16px",
+    // minWidth: "200px",
+    fontWeight: "500",
+    textTransform: "none",
+    padding: "5px 40px",
   },
 });
 export default function ClaimButton(props) {
   const classes = useStyles();
-  return <Button {...props} className={classes.root} variant="filled">{props.children}</Button>
+  return (
+    <Button {...props} className={classes.root} variant="contained">
+      {props.children}
+    </Button>
+  );
 }

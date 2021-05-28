@@ -1,39 +1,367 @@
+html,
+body,
+#root,
+.App {
+  min-height: 100vh;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.asset-form {
+  padding: 1rem;
+}
+.modal-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #dee2e6;
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
+}
+.modal-header .close {
+  opacity: 1 !important;
+}
+.modal-header .close {
+  padding: 1rem 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+}
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+}
+.modal-header .close span {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+}
+img {
+  max-width: 100%;
+}
+.modal-footer {
+  border: none;
+  justify-content: center;
+  padding-top: 2rem !important;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: end;
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e6;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
+}
+.asset-form label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #7e7e7e;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.asset-form .form-control {
+  height: 25px;
+  border: 1px solid rgba(112, 112, 112, 0.5);
+  border-radius: 30px;
+  font-size: 12px;
+  color: #434343;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.asset-form .form-control:focus {
+  box-shadow: none;
+  border-color: #ff7f00;
+  outline: none;
+}
+label.custom-control-label {
+  position: relative;
+  padding-right: 1.5rem;
+}
+.custom-checkbox .custom-control-label::before {
+  border-radius: 0.25rem;
+}
+label.custom-control-label::before,
+label.custom-control-label::after {
+  right: 0;
+  left: auto;
+  top: 0;
+}
+.custom-control-label::before,
+.custom-file-label,
+.custom-select {
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+.custom-control-label::before {
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  content: "";
+  background-color: #fff;
+  border: #adb5bd solid 1px;
+}
+label.custom-control-label::before,
+label.custom-control-label::after {
+  right: 0;
+  left: auto;
+  top: 0;
+}
+.custom-control-label::after {
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  content: "";
+  background: no-repeat 50%/50% 50%;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+.custom-control-input {
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: 1rem;
+  height: 1.25rem;
+  opacity: 0;
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: #007bff;
+  background-color: #007bff;
+}
+
+.custom-checkbox .custom-control-label::before {
+  border-radius: 0.25rem;
+}
+label.custom-control-label::before,
+label.custom-control-label::after {
+  right: 0;
+  left: auto;
+  top: 0;
+}
+.custom-control-label::before,
+.custom-file-label,
+.custom-select {
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+.custom-control-label::before {
+  position: absolute;
+  top: 0.25rem;
+  left: -1.7rem;
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  pointer-events: none;
+  content: "";
+  background-color: #fff;
+  border: #adb5bd solid 1px;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-image: url(./images//check.svg);
+}
+label.custom-control-label::before,
+label.custom-control-label::after {
+  right: 0;
+  left: auto;
+  top: 0;
+}
+.swap-toggle-section {
+  text-align: right;
+  margin-bottom: 5px;
+}
+.swap-toggle-section > span {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.toggle-swtich {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*Switch*/
+.toggle-swtich .switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+}
+.toggle-swtich .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-swtich .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.toggle-swtich .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #ff7f00;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.toggle-swtich input:checked + .slider {
+  background-color: #fff;
+}
+
+.toggle-swtich input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.toggle-swtich input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+.capsuleButtonRoot:hover {
+  background-color: #ff7f00 !important;
+  color: #ffffff !important;
+  margin: 0 0.5px;
+}
+
 .App {
   text-align: center;
-  font-family: Poppins;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
 }
 
 .Header {
-  background: #1A1A1A;
+  background: #1a1a1a;
   height: 66px;
+
   text-align: right;
-  box-shadow: 0px 2px 17px #000000A3;
-  position: relative;
+  box-shadow: 0px 2px 17px #000000a3;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 2;
 }
 
-.Footer{
+.menuButtonRoot {
+  min-width: unset !important;
+}
+
+.drawerPaper {
+  background-color: #1a1a1a !important;
+  top: 4rem !important;
+  overflow: hidden !important;
+  min-height: 5.5rem;
+}
+
+.drawerPaper.mobile {
+  top: 0 !important;
+}
+
+.altMenu {
+  padding: 2px 0.5rem;
+}
+
+.altMenu,
+.drawerAltMenu {
+  color: #ff7f00;
+  font-size: 1rem;
+  font: normal;
+  cursor: pointer;
+}
+
+.drawerAltListItem {
+  justify-content: flex-end !important;
+  /* padding: 8px 20px !important; */
+}
+
+.Footer {
   background: #262626;
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-size: 17px;
   padding: 0 6%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .footerLinks {
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   margin: 0 5px;
-  font-size: 13px;
   font-weight: 16px;
   line-height: 28px;
+  color: white;
 }
 
 .footerTitles {
   text-align: left;
-  color: #FF7F00;
+  color: white;
   font-weight: 600;
-  margin: 0px 0px 5px 0px;
-  font-size: 20px;
+  margin: 0px 0px 20px 0px;
+  font-size: 16px;
 }
 
 p {
@@ -42,48 +370,64 @@ p {
 }
 
 h3 {
-  color: #FF7F00;
+  color: #ff7f00;
 }
 
 a {
   text-decoration: none;
 }
 
-.Home, .Assets, .Pool {
-  padding: 0 5%;
-  background: #1A1A1A;
+.Home {
+  padding: 0 !important;
 }
 
-.Home div, .Assets div, .Pool div {
+.Home,
+.Assets,
+.Pool,
+.Mining {
+  padding: 0 5%;
+  min-height: 80vh;
+  background: #1a1a1a;
+  padding-bottom: 20rem;
+}
+
+.Home div,
+.Assets div,
+.Pool div {
   /*max-width: 1080px;
   margin: auto;*/
+}
+
+.MiningCard {
+  background-color: #fef6ef;
+  border-radius: 9px;
+  padding: 0 30px;
+  margin: auto;
 }
 
 .MainBox {
   font-family: Montserrat;
   position: relative;
-  text-align: left;
 }
 
 .MainBox h1 {
-  font-size: 80px;
+  font-size: 6rem !important;
+  font-weight: bold;
+  text-align: left !important;
 }
 
-.MainBox h1:nth-child(2) {
-  color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0;
+.MainBox .mainButtons {
+  justify-content: flex-start;
 }
 
-.MainBox h1:nth-child(1) {
-  color: black;
-  margin-bottom: 0;
-  transform: translate(5px, 5px);
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #FF7F00;
+@media screen and (max-width: 768px) {
+  .MainBox h1 {
+    text-align: center !important;
+    font-size: 4rem !important;
+  }
+  .MainBox .mainButtons {
+    justify-content: center;
+  }
 }
 
 .OrangeBox {
@@ -92,61 +436,68 @@ a {
   text-align: left;
 }
 
-.OrangeBox h1 {
-  font-size: 4em;
+.OrangeBox h1,
+.MainBox h1 {
+  font-size: 3rem;
+  text-shadow: 3px 3px 0 #1a1a1a, 4px 4px 0 #ff7f00;
   text-align: center;
-}
-
-.OrangeBox h1:nth-child(2) {
   color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.OrangeBox h1:nth-child(1) {
-  color: black;
   margin-bottom: 0;
-  transform: translate(5px, 5px);
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #FF7F00;
+  margin-top: 0;
 }
 
 .footerIcon {
   border: 2px solid rgb(255, 127, 0);
   border-radius: 50%;
   padding: 5px;
-  background-image: url("https://nft.nirakara.co.uk/medium-m.svg");
-  width: 27px;
-  height: 26px;
+  width: 0.7rem;
+  height: 0.7rem;
   display: inline-block;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+.footerIconSmallerSize {
+  font-size: 0.7rem !important;
+}
+
+@media (min-width: 768px) {
+  .footerIcon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .footerIconSmallerSize {
+    font-size: 1.2rem !important;
+  }
+}
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: absolute;
-  width: 40px;
-  height: 34px;
-  right: 5%;
-  top: 14px;
-  background-image: url("https://nft.nirakara.co.uk/menu.svg");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   background-color: transparent;
-  border: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   cursor: pointer;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #373a47;
-  opacity: 0!important;
+  opacity: 0 !important;
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -203,44 +554,45 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .AssetCard {
-  background-color: #FEF6EF;
+  background-color: #fef6ef;
   border-radius: 10px;
   color: black;
   width: 80%;
-  height: 450px;
+  /* height: 400px; */
   margin: auto;
   max-width: 300px;
+  padding: 40px 10px 20px;
 }
 
 .TokenCard {
-  background-color: #FEF6EF;
+  /* background-color: #fef6ef; */
   border-radius: 10px;
   color: black;
   width: 80%;
-  height: 35vw;
+  /* height: 35vw; */
   margin: auto;
 }
 
 .FAQBox {
-  background-color: #FF7F00;
+  background-color: #ff7f00;
   color: white;
   border-radius: 10px;
   padding: 10px;
-  padding-right: 45px;
-  font-size: 22px;
+  font-size: 18px;
+  margin-bottom: 20px;
   text-align: left;
-  margin: 20px;
   cursor: pointer;
   position: relative;
+  display: flex;
+  /* align-items: flex-start; */
+  justify-content: space-between;
 }
 
 .FAQBox span {
-  text-align: right;
-  float: right;
-  font-size: 54px;
-  position: absolute;
-  right: 12px;
-  top: -12px;
+  display: inline-block;
+  font-size: 26px;
+  margin-top: -4px;
+  margin-left: 1rem;
 }
 
 .AnswerBox {
@@ -250,12 +602,13 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 10px;
   font-size: 18px;
   text-align: left;
+  font-weight: 700;
   margin: 20px;
   position: relative;
 }
 
 .IconX {
-  border: 4px solid #FF7F00;
+  border: 4px solid #ff7f00;
   border-radius: 50px;
   width: 40px;
   height: 40px;
@@ -268,12 +621,73 @@ Note: Beware of modifying this element as it can break the animations - you shou
   vertical-align: middle;
   line-height: 40px;
   transform: rotate(10deg);
-  color: #FF7F00;
+  color: #ff7f00;
 }
 
+.slick-arrow-custom-right,
+.slick-arrow-custom-left {
+  position: absolute;
+  top: 45%;
+  z-index: 9;
+  background-color: transparent;
+  border: 1px solid #ff7f00;
+  font-size: 0px;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  transform: translate(0, -50%);
+  transition: 0.2s;
+  font-weight: 700;
+  cursor: pointer;
+}
 .slick-arrow-custom-right {
-  color: #FF7F00;
-  border: 2px solid #FF7F00;
+  right: -32px;
+}
+.slick-arrow-custom-right::after,
+.slick-arrow-custom-left::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.slick-arrow-custom-left:after {
+  content: " ";
+  background-image: url(./images/slick-arrow-left.svg);
+}
+.slick-arrow-custom-right:after {
+  content: " ";
+  background-image: url(./images/slick-arrow-right.svg);
+}
+.slick-arrow-custom-left {
+  left: -32px;
+}
+.slick-arrow-custom-right:hover,
+.slick-arrow-custom-left:hover {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .slick-arrow-custom-right,
+  .slick-arrow-custom-left {
+    top: auto;
+    bottom: -70px;
+  }
+  .slick-arrow-custom-left {
+    left: 10px;
+  }
+  .slick-arrow-custom-right {
+    right: 10px;
+  }
+}
+/* .slick-arrow-custom-right {
+  color: #ff7f00;
+  border: 2px solid #ff7f00;
   border-radius: 10px;
   display: block;
   position: absolute;
@@ -284,8 +698,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .slick-arrow-custom-left {
-  color: #FF7F00;
-  border: 2px solid #FF7F00;
+  color: #ff7f00;
+  border: 2px solid #ff7f00;
   border-radius: 10px;
   display: block;
   position: absolute;
@@ -293,8 +707,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   top: 50%;
   padding: 0px 10px;
   font-size: 24px;
-}
-
+} */
 
 table {
   width: 60%;
@@ -302,27 +715,30 @@ table {
   color: white;
 }
 
-table tr td:nth-child(1){
+table tr td:nth-child(1) {
   text-align: left;
 }
 
-table tr td:nth-child(2){
+table tr td:nth-child(2) {
   text-align: right;
 }
 
 .slider {
-  position: absolute;
+  position: fixed;
   width: 100%;
-  background: #1D1D1D;
+  background: #1d1d1d;
   z-index: 1;
   top: 0;
   height: 40px;
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .toggle {
-  transition: all .5s ease-in-out;
-  transform: translate(0px, 70px);
+  transition: all 0.5s ease-in-out;
+  transform: translate(0px, 66px);
 }
 
 .inverse {

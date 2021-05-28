@@ -1,0 +1,8 @@
+<svg id="Component_11_1" data-name="Component 11 – 1" xmlns="http://www.w3.org/2000/svg" width="119" height="44" viewBox="0 0 119 44">
+  <g id="Group_2973" data-name="Group 2973" transform="translate(-592.466 -2627.937)">
+    <circle id="Ellipse_436" data-name="Ellipse 436" cx="22" cy="22" r="22" transform="translate(592.466 2627.937)" fill="#ff7f00"/>
+    <circle id="Ellipse_437" data-name="Ellipse 437" cx="18.794" cy="18.794" r="18.794" transform="translate(595.672 2631.143)" fill="#231f20"/>
+    <text id="PETSX" transform="matrix(0.984, 0.176, -0.176, 0.984, 604.849, 2649.202)" fill="#ff7f00" font-size="5" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0">PETSX</tspan></text>
+  </g>
+  <text id="SOCKSX" transform="translate(84 28)" fill="#777" font-size="16" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="-34.24" y="0">SOCKSX</tspan></text>
+</svg>
