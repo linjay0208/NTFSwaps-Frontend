@@ -21,7 +21,7 @@ import MailIcon from "@material-ui/icons/Mail";
 function Header(props) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const matches = useMediaQuery("(min-width:1200px)");
-  const exactMatches = useMediaQuery("(min-width:769px)");
+  const exactMatches = useMediaQuery("(min-width:960px)");
   const history = useHistory();
 
   const openHome = () => {
@@ -56,7 +56,7 @@ function Header(props) {
       <div>
         <div
           className="Header"
-          style={{ padding: !matches ? "0 3rem" : "0 8rem" }}
+          style={{ padding: !matches ? "0 3rem" : "0 4rem" }}
         >
           <Grid
             container
@@ -64,7 +64,6 @@ function Header(props) {
             justify="space-between"
             alignItems="center"
             style={{
-              maxWidth: "1280px",
               margin: "auto",
               width: "100%",
               height: "100%",

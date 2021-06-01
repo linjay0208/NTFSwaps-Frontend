@@ -767,6 +767,7 @@ function App() {
 
         <Router>
           <Header coinbase={coinbase} getCoinbase={getCoinbase} />
+          <div style={{ height: "30px" }}></div>
           <Route exact path="/" render={(props) => <Home {...props} />} />
           <Route
             exact
