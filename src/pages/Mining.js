@@ -74,7 +74,7 @@ function Mining(props) {
       className="Mining"
       style={{ paddingBottom: matches ? "20rem" : "37rem" }}
     >
-      <img src="./new-images/mining-bg.png" />
+      {/* <img src="./new-images/mining-bg.png" /> */}
       <Grid
         container
         spacing={4}
