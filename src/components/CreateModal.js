@@ -37,15 +37,22 @@ export default function CreateModal(props) {
   const [address, setAddress] = useState("");
 
   const createTokens = async () => {
-    var contract = new props.web3.eth.Contract(props.abi, props.contractAddress);
-    var nftContract = new props.web3.eth.Contract(nftAbi, address);
-    var approval = await nftContract.methods.isApprovedForAll(props.coinbase, props.contractAddress).call();
-    console.log(approval)
-    if(!approval){
-      nftContract.methods.setApprovalForAll(props.contractAddress, true).send({from: props.coinbase});
+    try {
+      var contract = new props.web3.eth.Contract(props.abi, props.contractAddress);
+      var nftContract = new props.web3.eth.Contract(nftAbi, address);
+      var approval = await nftContract.methods.isApprovedForAll(props.coinbase, props.contractAddress).call();
+      console.log(approval)
+      if(!approval){
+        nftContract.methods.setApprovalForAll(props.contractAddress, true).send({from: props.coinbase});
+      }
+      await contract.methods.createToken(tokenName, erc20Name, address, nftId.split(" ") ).send({from: props.coinbase});
+      props.handleClose()
+    } catch(error) {
+      console.log(error)
+      props.openSnack("error", "You can't create token! Please input valid values");
+
     }
-    await contract.methods.createToken(tokenName, erc20Name, address, nftId.split(" ") ).send({from: props.coinbase});
-    props.handleClose()
+    
   }
 
   return (
