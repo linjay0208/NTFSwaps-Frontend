@@ -754,6 +754,9 @@ var pancakeAbi = [
   { stateMutability: "payable", type: "receive" },
 ];
 
+var linkAbi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"},{"name":"_data","type":"bytes"}],"name":"transferAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_subtractedValue","type":"uint256"}],"name":"decreaseApproval","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_addedValue","type":"uint256"}],"name":"increaseApproval","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"},{"indexed":false,"name":"data","type":"bytes"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}];
+var linkAddress = "0x404460C6A5EdE2D891e8297795264fDe62ADBB75";
+
 const useStyles = makeStyles({
   paper: {
     background: "#1D1D1D",
@@ -881,56 +884,66 @@ function Pool(props) {
   };
 
   const tradeTokenForETH = async () => {
-    var contract = new props.web3.eth.Contract(
-      props.abi,
-      props.contractAddress
-    );
-    var tokenContract = new props.web3.eth.Contract(tokenAbi, assetData.pair);
-    var approval = await tokenContract.methods
-      .allowance(props.coinbase, props.contractAddress)
-      .call();
-    console.log(approval);
-    if (approval == 0) {
-      tokenContract.methods
-        .approve(
-          props.contractAddress,
-          "100000000000000000000000000000000000000000000"
-        )
+    try {
+      var contract = new props.web3.eth.Contract(
+        props.abi,
+        props.contractAddress
+      );
+      var tokenContract = new props.web3.eth.Contract(tokenAbi, assetData.pair);
+      var approval = await tokenContract.methods
+        .allowance(props.coinbase, props.contractAddress)
+        .call();
+      console.log(approval);
+      if (approval == 0) {
+        tokenContract.methods
+          .approve(
+            props.contractAddress,
+            "100000000000000000000000000000000000000000000"
+          )
+          .send({ from: props.coinbase });
+        props.openSnack("error", "Please Await Approval And Try Again");
+        return;
+      }
+      await contract.methods
+        .sellTokenPancake(assetData.address, props.web3.utils.toWei(tokenAmount))
         .send({ from: props.coinbase });
-      props.openSnack("error", "Please Await Approval And Try Again");
-      return;
+      props.openSnack("success", "Tokens Created");
+    } catch(error) {
+      props.openSnack("error", error);
     }
-    await contract.methods
-      .sellTokenPancake(assetData.address, props.web3.utils.toWei(tokenAmount))
-      .send({ from: props.coinbase });
-    props.openSnack("success", "Tokens Created");
+    
   };
 
   const tradeETHForTokens = async () => {
-    var contract = new props.web3.eth.Contract(
-      props.abi,
-      props.contractAddress
-    );
-    var tokenContract = new props.web3.eth.Contract(tokenAbi, assetData.pair);
-    var approval = await tokenContract.methods
-      .allowance(props.coinbase, props.contractAddress)
-      .call();
-    console.log(approval);
-    if (approval == 0) {
-      tokenContract.methods
-        .approve(
-          props.contractAddress,
-          "100000000000000000000000000000000000000000000"
-        )
-        .send({ from: props.coinbase });
-      props.openSnack("error", "Please Await Approval And Try Again");
-      return;
+    try {
+      var contract = new props.web3.eth.Contract(
+        props.abi,
+        props.contractAddress
+      );
+      var tokenContract = new props.web3.eth.Contract(tokenAbi, assetData.pair);
+      var approval = await tokenContract.methods
+        .allowance(props.coinbase, props.contractAddress)
+        .call();
+      console.log(approval);
+      if (approval == 0) {
+        tokenContract.methods
+          .approve(
+            props.contractAddress,
+            "100000000000000000000000000000000000000000000"
+          )
+          .send({ from: props.coinbase });
+        props.openSnack("error", "Please Await Approval And Try Again");
+        return;
+      }
+      await contract.methods.buyTokenPancake(assetData.address).send({
+        from: props.coinbase,
+        value: new props.web3.utils.toWei(wethAmount),
+      });
+      props.openSnack("success", "Tokens Created");
+    } catch(error) {
+      props.openSnack("error", error);
     }
-    await contract.methods.buyTokenPancake(assetData.address).send({
-      from: props.coinbase,
-      value: new props.web3.utils.toWei(wethAmount),
-    });
-    props.openSnack("success", "Tokens Created");
+    
   };
 
   const mintTokens = async () => {
@@ -938,30 +951,43 @@ function Pool(props) {
   };
 
   const claimTokens = async () => {
-    if (!assetData.address) {
-      props.openSnack("error", "No Token Data");
-      return;
-    }
-    var contract = new props.web3.eth.Contract(
-      props.abi,
-      props.contractAddress
-    );
-    var nftContract = new props.web3.eth.Contract(nftAbi, assetData.address);
-    var approval = await nftContract.methods
-      .isApprovedForAll(props.coinbase, props.contractAddress)
-      .call();
-    console.log(approval);
-    if (!approval) {
-      nftContract.methods
-        .setApprovalForAll(props.contractAddress, true)
+    try {
+      if (!assetData.address) {
+        props.openSnack("error", "No Token Data");
+        return;
+      }
+      var contract = new props.web3.eth.Contract(
+        props.abi,
+        props.contractAddress
+      );
+      var nftContract = new props.web3.eth.Contract(nftAbi, assetData.address);
+      var linkContract = new props.web3.eth.Contract(linkAbi, linkAddress);
+      var approval = await nftContract.methods
+        .isApprovedForAll(props.coinbase, props.contractAddress)
+        .call();
+      
+      var linkApproval = await linkContract.methods.allowance(props.coinbase, props.contractAddress).call();
+  
+      console.log(approval);
+      console.log(linkApproval);
+      if (!approval) {
+        nftContract.methods
+          .setApprovalForAll(props.contractAddress, true)
+          .send({ from: props.coinbase });
+        props.openSnack("error", "Please Await Approval And Try Again");
+        return;
+      } else if(!linkApproval) {
+        linkContract.methods.approve(props.contractAddress, "100000000000000000000000000000000000000000000").send({from: props.coinbase});
+        props.openSnack("error", "Please Await Approval And Try Again");
+      }
+  
+      await contract.methods
+        .claimRandomNFT(assetData.address, 1234)
         .send({ from: props.coinbase });
-      props.openSnack("error", "Please Await Approval And Try Again");
-      return;
+      props.openSnack("success", "Tokens Created");
+    } catch(error) {
+      props.openSnack("error", error);
     }
-    await contract.methods
-      .claimRandomNFT(assetData.address, 1234)
-      .send({ from: props.coinbase });
-    props.openSnack("success", "Tokens Created");
   };
 
   function SymbolComponent() {
