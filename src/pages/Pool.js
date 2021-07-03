@@ -805,7 +805,6 @@ function Pool(props) {
   }, [props.coinbase]);
 
   useEffect(() => {
-    console.log("SET ASSET", props.assetList);
     if (props.assetList)
       setAssetData(
         props.assetList.find((e) => e.symbol == props.match.params.sym)
@@ -861,7 +860,6 @@ function Pool(props) {
     if (props.web3 && props.coinbase != "" && assetData && assetData.pair) {
       var tokenContract = new props.web3.eth.Contract(tokenAbi, assetData.pair);
       var bal = await tokenContract.methods.balanceOf(props.coinbase).call();
-      console.log(bal);
       setBalance(props.web3.utils.fromWei(bal.toString()));
       setTokenAmount(props.web3.utils.fromWei(bal.toString()));
     }
@@ -893,7 +891,6 @@ function Pool(props) {
       var approval = await tokenContract.methods
         .allowance(props.coinbase, props.contractAddress)
         .call();
-      console.log(approval);
       if (approval == 0) {
         tokenContract.methods
           .approve(
@@ -924,7 +921,6 @@ function Pool(props) {
       var approval = await tokenContract.methods
         .allowance(props.coinbase, props.contractAddress)
         .call();
-      console.log(approval);
       if (approval == 0) {
         tokenContract.methods
           .approve(
@@ -968,8 +964,6 @@ function Pool(props) {
       
       var linkApproval = await linkContract.methods.allowance(props.coinbase, props.contractAddress).call();
   
-      console.log(approval);
-      console.log(linkApproval);
       if (!approval) {
         nftContract.methods
           .setApprovalForAll(props.contractAddress, true)

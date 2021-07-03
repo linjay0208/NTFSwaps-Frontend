@@ -39,7 +39,6 @@ function Mining(props) {
   const matches = useMediaQuery("(min-width:900px)");
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     setSearchText(e.target.value);
   };
 
@@ -59,8 +58,6 @@ function Mining(props) {
     var arr = pools;
 
     if (searchText != "") {
-      console.log(arr);
-      console.log(arr.filter((e) => e.name.includes(searchText)));
       arr = arr.filter((e) =>
         e.name.toLowerCase().includes(searchText.toLowerCase())
       );

@@ -303,7 +303,6 @@ export default function SwapModal(props) {
     var approval = await nftContract.methods
       .isApprovedForAll(props.coinbase, props.contractAddress)
       .call();
-    console.log(approval);
     if (!approval) {
       nftContract.methods
         .setApprovalForAll(props.contractAddress, true)

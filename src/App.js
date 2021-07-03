@@ -558,8 +558,6 @@ function App() {
 
   useEffect(
     (nextProps) => {
-      console.log(nextProps);
-      console.log(coinbase);
       getAssetList();
     },
     [coinbase]
@@ -625,9 +623,6 @@ function App() {
       var res = await fetch("http://api.nftswaps.io/getAssets");
 
       var data = await res.json();
-      console.log(data);
-      console.log(web3);
-      console.log(coinbase);
       if (web3 && coinbase) {
         var factoryContract = new web3.eth.Contract(factoryAbi, factoryAddress);
         for (var x = 0; x < data.length; x++) {
@@ -639,7 +634,6 @@ function App() {
           var pairContract = await factoryContract.methods
             .getPair(data[x].pair, "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
             .call();
-            console.log("pairContract", pairContract);
             if(pairContract != "0x0000000000000000000000000000000000000000") {
               var totalBNB = await wethContract.methods
                 .balanceOf(pairContract)
@@ -647,8 +641,6 @@ function App() {
               var totalToken = await tokenContract.methods
                 .balanceOf(pairContract)
                 .call();
-              console.log(totalBNB);
-              console.log(totalToken);
               data[x].liquidity = +(web3.utils.fromWei(totalBNB) * 2 * 500).toFixed(
                 2
               );
@@ -656,8 +648,6 @@ function App() {
                 await tokenContract.methods.totalSupply().call()
               );
               var price = new Big(totalBNB).div(new Big(totalToken));
-              console.log(price.toString());
-              console.log(data[x].supply);
               data[x].price = price.toFixed(4);
             } else {
               data[x].liquidity = 0;
@@ -668,10 +658,9 @@ function App() {
         }
       }
       setAssets(data);
-      console.log(data);
       return data;
     } catch(error) {
-      console.log({error})
+      openSnack("error", error);
     }
     
   };

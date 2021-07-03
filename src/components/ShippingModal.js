@@ -50,7 +50,6 @@ export default function ClaimButton(props) {
     var contract = new props.web3.eth.Contract(props.abi, props.contractAddress);
     var nftContract = new props.web3.eth.Contract(nftAbi, props.address);
     var approval = await nftContract.methods.isApprovedForAll(props.coinbase, props.contractAddress).call();
-    console.log(approval)
     if(!approval){
       nftContract.methods.setApprovalForAll(props.contractAddress, true).send({from: props.coinbase});
       props.openSnack("error", "Please Await Approval And Try Again")
