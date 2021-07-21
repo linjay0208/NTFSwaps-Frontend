@@ -113,8 +113,8 @@ function Mining(props) {
           }
         >
           {props.assetList &&
-            searchCriteria(props.assetList).map((e) => {
-              return <MiningCard data={e} />;
+            searchCriteria(props.assetList).map((e, ind) => {
+              return <MiningCard data={e} key={ind}/>;
             })}
         </Slider>
       </div>

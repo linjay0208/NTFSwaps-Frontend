@@ -775,7 +775,7 @@ function App() {
             path="/mining-staking"
             render={(props) => (
               <Mining
-                assetList={hardAssets}
+                assetList={assets}
                 {...props}
                 web3={web3}
                 abi={abi}
@@ -791,7 +791,7 @@ function App() {
             path="/assets"
             render={(props) => (
               <Assets
-                assetList={hardAssets}
+                assetList={assets}
                 {...props}
                 web3={web3}
                 abi={abi}
@@ -807,7 +807,7 @@ function App() {
             path="/pool/:sym"
             render={(props) => (
               <Pool
-                assetList={hardAssets}
+                assetList={assets}
                 {...props}
                 web3={web3}
                 abi={abi}

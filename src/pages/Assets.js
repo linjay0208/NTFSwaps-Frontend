@@ -103,7 +103,7 @@ function Assets(props) {
             <CreateButton onClick={handleOpen}>Create Asset Pool</CreateButton>
           </Grid>
           <Grid item xs={12} md={6} style={{ textAlign: "right" }}>
-            <SearchBar handleChange={handleChange} />
+            <SearchBar handlechange={handleChange} />
           </Grid>
         </Grid>
         <br />
@@ -115,8 +115,8 @@ function Assets(props) {
           slidesToShow={searchCriteria(props.assetList).length > 2 ? 3 : 1}
         >
           {props.assetList &&
-            searchCriteria(props.assetList).map((e) => {
-              return <AssetCard data={e} />;
+            searchCriteria(props.assetList).map((e, ind) => {
+              return <AssetCard data={e} key={ind} />;
             })}
         </Slider>
         <br />
@@ -158,7 +158,7 @@ function Assets(props) {
             </CreateButton>
           </Grid>
           <Grid item xs={12} sm={5} style={{ textAlign: "right" }}>
-            <SearchBar handleChange={handleChange} />
+            <SearchBar handlechange={handleChange} />
           </Grid>
         </Grid>
         <br />
@@ -170,9 +170,9 @@ function Assets(props) {
           slidesToShow={1}
         >
           {props.assetList &&
-            searchCriteria(props.assetList).map((e) => {
+            searchCriteria(props.assetList).map((e, ind) => {
               return (
-                <div>
+                <div key={ind}>
                   <AssetCard data={e} />
                 </div>
               );

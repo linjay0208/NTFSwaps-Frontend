@@ -72,7 +72,7 @@ export default function SearchBar(props) {
         variant="outlined"
         InputProps={{ className: classes.input }}
         placeholder="Search..."
-        onChange={(e) => props.handleChange(e)}
+        onChange={(e) => props.handlechange(e)}
       />
     </div>
   );

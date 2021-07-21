@@ -416,7 +416,7 @@ function Home() {
           {!sliderToggle && (
             <div style={{ width: "70%", margin: "auto" }}>
               <Slider {...settings} centerPadding={"200px"}>
-                {hiwList1.map((ind, e) => {
+                {hiwList1.map((e, ind) => {
                   return <img style={{ width: "80%" }} src={e} key={ind} alt=""/>;
                 })}
               </Slider>
@@ -426,7 +426,7 @@ function Home() {
           {sliderToggle && (
             <div style={{ width: "70%", margin: "auto" }}>
               <Slider {...settings} centerPadding={"200px"}>
-                {hiwList2.map((ind, e) => {
+                {hiwList2.map((e, ind) => {
                   return <img style={{ width: "80%" }} src={e} key={ind} alt=""/>;
                 })}
               </Slider>
