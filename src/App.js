@@ -9,7 +9,6 @@ import Footer from "./Footer.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
-  MuiThemeProvider,
   createMuiTheme,
   ThemeProvider,
 } from "@material-ui/core/styles";
@@ -548,7 +547,7 @@ function App() {
       pool: ["1", "2"],
       price: "0",
       symbol: "TESTX",
-      uri: "http://test.nftswaps.io/sockImages/",
+      uri: "https://test.nftswaps.io/sockImages/",
     },
   ]);
 
@@ -564,17 +563,17 @@ function App() {
   );
 
   const openSnack = (type, message) => {
-    if (type == "error") {
+    if (type === "error") {
       setState({ ...state, openError: true, message: message });
-    } else if (type == "success") {
+    } else if (type === "success") {
       setState({ ...state, openAlert: true, message: message });
     }
   };
 
   const handleClose = (type) => {
-    if (type == "error") {
+    if (type === "error") {
       setState({ ...state, openError: false });
-    } else if (type == "success") {
+    } else if (type === "success") {
       setState({ ...state, openAlert: false });
     }
   };
@@ -620,7 +619,7 @@ function App() {
 
   const getAssetList = async () => {
     try {
-      var res = await fetch("http://api.nftswaps.io/getAssets");
+      var res = await fetch("https://api.nftswaps.io/getAssets");
 
       var data = await res.json();
       if (web3 && coinbase) {
@@ -660,7 +659,8 @@ function App() {
       setAssets(data);
       return data;
     } catch(error) {
-      openSnack("error", error);
+      // openSnack("error", error);
+      console.log(error)
     }
     
   };
@@ -671,7 +671,7 @@ function App() {
       _id: "609cf0d842a9c32c44e84190",
       name: "SWAPS SOCKS",
       symbol: "SOCKSX",
-      uri: "http://api.nftswaps.io/socks/",
+      uri: "https://api.nftswaps.io/socks/",
       address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
       pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
       liquidity: "$1,000,000",
@@ -683,7 +683,7 @@ function App() {
       _id: "609cf0d842a9c32c44e84190",
       name: "Battle Pets",
       symbol: "PETSX",
-      uri: "http://api.nftswaps.io/socks/",
+      uri: "https://api.nftswaps.io/socks/",
       address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
       pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
       liquidity: "$250,324",
@@ -695,7 +695,7 @@ function App() {
       _id: "609cf0d842a9c32c44e84190",
       name: "Lil Moon Rockets",
       symbol: "ROCKX",
-      uri: "http://api.nftswaps.io/socks/",
+      uri: "https://api.nftswaps.io/socks/",
       address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
       pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
       liquidity: "$550,666",
@@ -707,7 +707,7 @@ function App() {
       _id: "609cf0d842a9c32c44e84190",
       name: "SWAPS SOCKS",
       symbol: "SOCKSX",
-      uri: "http://api.nftswaps.io/socks/",
+      uri: "https://api.nftswaps.io/socks/",
       address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
       pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
       liquidity: "$1,000,000",
@@ -719,7 +719,7 @@ function App() {
       _id: "609cf0d842a9c32c44e84190",
       name: "Battle Pets",
       symbol: "PETSX",
-      uri: "http://api.nftswaps.io/socks/",
+      uri: "https://api.nftswaps.io/socks/",
       address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
       pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
       liquidity: "$250,324",
@@ -731,7 +731,7 @@ function App() {
       _id: "609cf0d842a9c32c44e84190",
       name: "Lil Moon Rockets",
       symbol: "ROCKX",
-      uri: "http://api.nftswaps.io/socks/",
+      uri: "https://api.nftswaps.io/socks/",
       address: "0x96445853eF8fa676c25390c4C81875C1e86fa3Ab",
       pair: "0x7F117Ef9b80273aD8956d041cfD70d4c2A1409d5",
       liquidity: "$550,666",

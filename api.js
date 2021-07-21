@@ -63,7 +63,7 @@ io.on('connection', (socket) => {
 var test = async () => {
   var assets = await AssetList.find();
   console.log(assets);
-  //assets[0].uri = "http://api.nftswaps.io/socks/"
+  //assets[0].uri = "https://api.nftswaps.io/socks/"
   assets[1].pool = [1, 2, 3]
   assets[1].markModified("pool")
   assets[1].save()
@@ -71,7 +71,7 @@ var test = async () => {
   var assets = await SockList.find();
   //console.log(assets);
   /*for(var x = 0; x < assets.length; x++){
-    assets[x].image = "http://test.nftswaps.io/sockImages/" + x + ".png"
+    assets[x].image = "https://test.nftswaps.io/sockImages/" + x + ".png"
     assets[x].save();
   }*/
 }
@@ -165,7 +165,7 @@ async function sockWatcher(){
             var rarity = await baeContract.methods.isRare(events[x].returnValues.tokenId).call();
             var asset = await SockList.create({
               index: events[x].returnValues.tokenId,
-              image: "http://test.nftswaps.io/sockImages/" + rarity.toString() + ".png"
+              image: "https://test.nftswaps.io/sockImages/" + rarity.toString() + ".png"
             })
             fs.writeFile('blockNumber2.txt', (events[x].blockNumber + 1).toString(), function (err) {
               if (err) return console.log(err);

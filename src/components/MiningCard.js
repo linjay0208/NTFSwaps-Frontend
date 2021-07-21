@@ -141,7 +141,7 @@ function MiningCard(props) {
                 width: "67px",
                 height: "67px",
                 backgroundImage:
-                  'url("http://test.nftswaps.io/icons/' +
+                  'url("https://test.nftswaps.io/icons/' +
                   props.data.symbol +
                   '.png")',
                 backgroundSize: "cover",

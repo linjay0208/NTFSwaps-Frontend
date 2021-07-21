@@ -195,7 +195,7 @@ function Home() {
             </div>
           </Grid>
           {exactMatches && (
-            <Grid item xs={0} md={6}>
+            <Grid item xs={12} md={6}>
               <img src="./new-roll-up2.gif" style={{ width: "100%" }} />
             </Grid>
           )}
@@ -234,7 +234,7 @@ function Home() {
         </Grid>
         <div style={{ padding: "0 16px" }}>
           <Grid container spacing={3} justify="center">
-            <Grid item xs={12} sm={4} justify="center" md={3}>
+            <Grid container item xs={12} sm={4} justify="center" md={3}>
               <div
                 style={{
                   border: "1px solid #FF7F00",
@@ -271,7 +271,7 @@ function Home() {
               </div>
             </Grid>
 
-            <Grid item xs={12} sm={4} justify="center" md={3}>
+            <Grid container item xs={12} sm={4} justify="center" md={3}>
               <div
                 style={{
                   border: "1px solid #FF7F00",
@@ -308,7 +308,7 @@ function Home() {
               </div>
             </Grid>
 
-            <Grid item xs={12} sm={4} justify="center" md={3}>
+            <Grid container item xs={12} sm={4} justify="center" md={3}>
               <div
                 style={{
                   border: "1px solid #FF7F00",
@@ -345,7 +345,7 @@ function Home() {
               </div>
             </Grid>
 
-            <Grid item xs={12} sm={4} justify="center" md={3}>
+            <Grid container item xs={12} sm={4} justify="center" md={3}>
               <div
                 style={{
                   border: "1px solid #FF7F00",
@@ -399,14 +399,14 @@ function Home() {
           <CapsuleButton
             onClick={() => setSliderToggle(false)}
             position="left"
-            active={sliderToggle}
+            active={sliderToggle ? 1 : 0}
           >
             Case One
           </CapsuleButton>
           <CapsuleButton
             onClick={() => setSliderToggle(true)}
             position="right"
-            active={!sliderToggle}
+            active={!sliderToggle ? 1 : 0}
           >
             Case Two
           </CapsuleButton>
@@ -416,8 +416,8 @@ function Home() {
           {!sliderToggle && (
             <div style={{ width: "70%", margin: "auto" }}>
               <Slider {...settings} centerPadding={"200px"}>
-                {hiwList1.map((e) => {
-                  return <img style={{ width: "80%" }} src={e} />;
+                {hiwList1.map((ind, e) => {
+                  return <img style={{ width: "80%" }} src={e} key={ind} alt=""/>;
                 })}
               </Slider>
             </div>
@@ -426,8 +426,8 @@ function Home() {
           {sliderToggle && (
             <div style={{ width: "70%", margin: "auto" }}>
               <Slider {...settings} centerPadding={"200px"}>
-                {hiwList2.map((e) => {
-                  return <img style={{ width: "80%" }} src={e} />;
+                {hiwList2.map((ind, e) => {
+                  return <img style={{ width: "80%" }} src={e} key={ind} alt=""/>;
                 })}
               </Slider>
             </div>
@@ -440,7 +440,7 @@ function Home() {
           </div>
           <br />
           <br />
-          <img src="./road.png" style={{ width: "100%" }} />
+          <img src="./road.png" style={{ width: "100%" }} alt="road"/>
           <br />
           <br />
         </Grid>
@@ -452,7 +452,7 @@ function Home() {
               <Grid item xs={12} md={4}>
                 <TextField
                   className={classes.root}
-                  id="outlined-basic"
+                  id="outlined-basic-name"
                   color="primary"
                   variant="outlined"
                   InputProps={{ className: classes.input }}
@@ -462,7 +462,7 @@ function Home() {
               <Grid item xs={12} md={4}>
                 <TextField
                   className={classes.root}
-                  id="outlined-basic"
+                  id="outlined-basic-tg"
                   color="primary"
                   variant="outlined"
                   InputProps={{ className: classes.input }}
@@ -472,7 +472,7 @@ function Home() {
               <Grid item xs={12} md={4}>
                 <TextField
                   className={classes.root}
-                  id="outlined-basic"
+                  id="outlined-basic-tg-username"
                   color="primary"
                   variant="outlined"
                   InputProps={{ className: classes.input }}
@@ -482,7 +482,7 @@ function Home() {
               <Grid item xs={12} md={12}>
                 <TextField
                   className={classes.root}
-                  id="outlined-basic"
+                  id="outlined-basic-msg"
                   color="primary"
                   variant="outlined"
                   InputProps={{ className: classes.input }}

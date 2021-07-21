@@ -10,14 +10,11 @@ import Grid from "@material-ui/core/Grid";
 import {
   Drawer,
   Button,
-  List,
-  ListItem,
+
   Divider,
-  ListItemIcon,
-  ListItemText,
+
 } from "@material-ui/core";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+
 function Header(props) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const matches = useMediaQuery("(min-width:1200px)");
@@ -32,9 +29,9 @@ function Header(props) {
     history.push("/assets");
   };
 
-  const openMining = () => {
-    history.push("/mining-staking");
-  };
+  // const openMining = () => {
+  //   history.push("/mining-staking");
+  // };
 
   const [state, setState] = React.useState({
     right: false,
@@ -97,7 +94,7 @@ function Header(props) {
                   Locked Liquidity
                 </ClearButton>
               </a>
-              {props.coinbase != "" ? (
+              {props.coinbase !== "" ? (
                 <FilledButton
                   startIcon={<SwapIcon />}
                   onClick={openAssets}
@@ -119,7 +116,7 @@ function Header(props) {
                 // style={{ backgroundImage: 'url("/headMenu.svg")' }}
                 onClick={() => setToggleMenu(!toggleMenu)}
               >
-                <img style={{ width: "30px" }} src="/headMenu.svg" />
+                <img style={{ width: "30px" }} src="/headMenu.svg" alt="headMenu"/>
               </button>
             </div>
           </Grid>
@@ -218,7 +215,7 @@ function Header(props) {
                         </a>
                       </Grid>
                       <Grid item>
-                        {props.coinbase != "" ? (
+                        {props.coinbase !== "" ? (
                           <FilledButton
                             startIcon={<SwapIcon />}
                             onClick={openAssets}
